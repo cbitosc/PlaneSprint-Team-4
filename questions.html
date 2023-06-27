@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q&A Forum</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/170875e863.js" crossorigin="anonymous"></script>
+    <style>
+        /* * {
+            color: white;
+        } */
+
+        /* Custom CSS code */
+        .question-card h2 {
+            color: white;
+            /* Set question title color to white */
+        }
+
+        .question-card .user-info span {
+            margin-left: 0.5rem;
+            /* Adjust username position */
+        }
+
+        body {
+            background-color: black;
+        }
+
+        .search {
+            margin-left: 20rem;
+            margin-right: 20rem;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .list {
+            width: 100%;
+            background-color: #ffffff;
+            border-radius: 0 0 5px 5px;
+        }
+
+        .list-items {
+            padding: 10px 5px;
+        }
+
+        .list-items:hover {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header py-4">
+        <div class="container mx-auto px-4">
+            <h1 class="text-2xl font-semibold text-white text-center font-medium">Question and Answers forum</h1>
+        </div>
+    </header>
+    <form class="search">
+        <label for="default-search"
+            class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+        <div class="relative">
+            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none"
+                    stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+            </div>
+            <input type="search" id="default-search"
+                class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Search Mockups, Logos..." required>
+            <button type="submit"
+                class="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
+        </div>
+        <ul class="list"></ul>
+    </form>
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <div class="max-w-3xl mx-auto">
+            <!-- Add Question Form -->
+            <form id="addQuestionForm" class="mb-6">
+                <h2 class="text-lg font-semibold mb-4 text-white">Add Question</h2>
+                <input type="text" class="w-full bg-gray-900 text-white p-2 rounded mb-2" placeholder="Your Name"
+                    id="nameInput">
+                <textarea class="w-full bg-gray-900 text-white p-2 rounded" rows="3"
+                    placeholder="Type your question here..." id="questionInput"></textarea>
+                <button class="question-submit bg-purple-500 text-white px-4 py-2 rounded mt-4" type="submit">Submit
+                    Question</button>
+            </form>
+
+            <!-- Question Cards -->
+            <!-- Question Cards -->
+            <div id="questionCards">
+                <!-- Sample Question 1 -->
+                <div class="question-card bg-gray-900 rounded-lg shadow-md p-6 mb-6">
+                    <h2 class="text-lg font-semibold mb-4 text-white">How can I style a button using CSS?</h2><i
+                        class="fa-solid fa-circle" style="color: #ff0000;"></i>
+                    <p class="text-gray-300 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec
+                        ultrices elit, eget tempus risus.</p>
+                    <div class="flex items-center justify-between user-info">
+                        <img src="https://via.placeholder.com/40" alt="User Avatar" class="w-8 h-8 rounded-full mr-2">
+                        <span class="text-gray-300 font-medium">Vaibhav Rao</span>
+                        <span class="text-gray-400 text-sm">2 hours ago</span>
+                    </div>
+                    <button class="answer-button text-gray-400 text-sm mt-4 focus:outline-none">Answer</button>
+                </div>
+
+                <!-- Sample Question 2 -->
+                <div class="question-card bg-gray-900 rounded-lg shadow-md p-6 mb-6">
+                    <h2 class="text-lg font-semibold mb-4 text-white">What is the difference between HTML and HTML5?
+                    </h2><i class="fa-solid fa-circle" style="color: #ff0000;"></i>
+                    <p class="text-gray-300 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec
+                        ultrices elit, eget tempus risus.</p>
+                    <div class="flex items-center justify-between user-info">
+                        <img src="https://via.placeholder.com/40" alt="User Avatar" class="w-8 h-8 rounded-full mr-2">
+                        <span class="text-gray-300 font-medium">Osman Irfan</span>
+                        <span class="text-gray-400 text-sm">3 hours ago</span>
+                    </div>
+                    <button class="answer-button text-gray-400 text-sm mt-4 focus:outline-none">Answer</button>
+                </div>
+
+                <!-- Sample Question 3 -->
+                <div class="question-card bg-gray-900 rounded-lg shadow-md p-6 mb-6">
+                    <h2 class="text-lg font-semibold mb-4 text-white">How do I make a responsive website using CSS?</h2>
+                    <i class="fa-solid fa-circle" style="color: #ff0000;"></i>
+                    <p class="text-gray-300 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec
+                        ultrices elit, eget tempus risus.</p>
+                    <div class="flex items-center justify-between user-info">
+                        <img src="https://via.placeholder.com/40" alt="User Avatar" class="w-8 h-8 rounded-full mr-2">
+                        <span class="text-gray-300 font-medium">David Johnson</span>
+                        <span class="text-gray-400 text-sm">4 hours ago</span>
+                    </div>
+                    <button class="answer-button text-gray-400 text-sm mt-4 focus:outline-none">Answer</button>
+                </div>
+                <div class="question-card bg-gray-900 rounded-lg shadow-md p-6 mb-6">
+                    <h2 class="text-lg font-semibold mb-4 text-white">How to study Python</h2><i
+                        class="fa-solid fa-circle" style="color: #ff0000;"></i>
+                    <p class="text-gray-300 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec
+                        ultrices elit, eget tempus risus.</p>
+                    <div class="flex items-center justify-between user-info">
+                        <img src="https://via.placeholder.com/40" alt="User Avatar" class="w-8 h-8 rounded-full mr-2">
+                        <span class="text-gray-300 font-medium">Sai teja</span>
+                        <span class="text-gray-400 text-sm">4 hours ago</span>
+                    </div>
+                    <button class="answer-button text-gray-400 text-sm mt-4 focus:outline-none">Answer</button>
+                </div>
+                <div class="question-card bg-gray-900 rounded-lg shadow-md p-6 mb-6">
+                    <h2 class="text-lg font-semibold mb-4 text-white">Tensorflow or Pytorch</h2><i
+                        class="fa-solid fa-circle" style="color: #ff0000;"></i>
+                    <p class="text-gray-300 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec
+                        ultrices elit, eget tempus risus.</p>
+                    <div class="flex items-center justify-between user-info">
+                        <img src="https://via.placeholder.com/40" alt="User Avatar" class="w-8 h-8 rounded-full mr-2">
+                        <span class="text-gray-300 font-medium">Sai teja</span>
+                        <span class="text-gray-400 text-sm">4 hours ago</span>
+                    </div>
+                    <button class="answer-button text-gray-400 text-sm mt-4 focus:outline-none">Answer</button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer py-4">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-sm">Q&A Forum &copy; 2023. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript code -->
+    <script>
+        const questionForm = document.getElementById('addQuestionForm');
+        const questionCards = document.getElementById('questionCards');
+        let questionId = 1;
+
+        questionForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+            const nameInput = document.getElementById('nameInput');
+            const questionInput = document.getElementById('questionInput');
+
+            if (nameInput.value.trim() === '' || questionInput.value.trim() === '') {
+                return;
+            }
+
+            const questionCard = document.createElement('div');
+            questionCard.classList.add('question-card', 'bg-gray-900', 'rounded-lg', 'shadow-md', 'p-6', 'mb-6');
+            const questionTitle = document.createElement('h2');
+            questionTitle.classList.add('text-lg', 'font-semibold', 'mb-4');
+            questionTitle.textContent = questionInput.value;
+            const questionText = document.createElement('p');
+            questionText.classList.add('text-gray-300', 'mb-4');
+            questionText.textContent = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec ultrices elit, eget tempus risus.';
+            const userInfo = document.createElement('div');
+            userInfo.classList.add('flex', 'items-center', 'justify-between', 'user-info');
+            const userAvatar = document.createElement('img');
+            userAvatar.src = 'https://via.placeholder.com/40';
+            userAvatar.alt = 'User Avatar';
+            userAvatar.classList.add('w-8', 'h-8', 'rounded-full', 'mr-2');
+            const username = document.createElement('span');
+            username.classList.add('text-gray-300', 'font-medium');
+            username.textContent = nameInput.value;
+            const timestamp = document.createElement('span');
+            timestamp.classList.add('text-gray-400', 'text-sm');
+            timestamp.textContent = '2 hours ago';
+            const answerButton = document.createElement('button');
+            answerButton.classList.add('answer-button', 'text-gray-400', 'text-sm', 'mt-4', 'focus:outline-none');
+            answerButton.textContent = 'Answer';
+            answerButton.addEventListener('click', function () {
+                const answerBox = document.createElement('div');
+                answerBox.classList.add('answer-box', 'mt-4');
+                const answerNameInput = document.createElement('input');
+                answerNameInput.type = 'text';
+                answerNameInput.classList.add('w-full', 'bg-gray-900', 'text-white', 'p-2', 'rounded', 'mb-2');
+                answerNameInput.placeholder = 'Your Name';
+                const answerTextarea = document.createElement('textarea');
+                answerTextarea.classList.add('w-full', 'bg-gray-900', 'text-white', 'p-2', 'rounded');
+                answerTextarea.rows = 3;
+                answerTextarea.placeholder = 'Type your answer here...';
+                const codeSnippetTextarea = document.createElement('textarea');
+                codeSnippetTextarea.classList.add('w-full', 'bg-gray-900', 'text-white', 'p-2', 'rounded', 'hidden');
+                codeSnippetTextarea.rows = 3;
+                codeSnippetTextarea.placeholder = 'Type your code snippet here...';
+                const appendCodeSnippetButton = document.createElement('button');
+                appendCodeSnippetButton.classList.add('append-code-snippet', 'bg-gray-900', 'text-white', 'px-4', 'py-2', 'rounded', 'mt-4');
+                appendCodeSnippetButton.textContent = 'Append Code Snippet';
+                const appendTextAreaButton = document.createElement('button');
+                appendTextAreaButton.classList.add('append-text-area', 'bg-gray-900', 'text-white', 'px-4', 'py-2', 'rounded', 'mt-4');
+                appendTextAreaButton.textContent = 'Append Text Area';
+                const submitAnswerButton = document.createElement('button');
+                submitAnswerButton.classList.add('answer-submit', 'bg-gray-900', 'text-white', 'px-4', 'py-2', 'rounded', 'mt-4');
+                submitAnswerButton.textContent = 'Submit Answer';
+                submitAnswerButton.addEventListener('click', function () {
+                    const answerName = answerNameInput.value.trim();
+                    const answerText = answerTextarea.value.trim();
+                    const codeSnippet = codeSnippetTextarea.value.trim();
+
+                    if (answerName !== '' && (answerText !== '' || codeSnippet !== '')) {
+                        const answerElement = document.createElement('div');
+                        const usernameElement = document.createElement('span');
+                        const breakElement = document.createElement('br');
+                        const answerTextElement = document.createElement('span');
+                        const codeSnippetElement = document.createElement('code');
+
+                        answerElement.classList.add('mb-2');
+                        usernameElement.classList.add('text-gray-300', 'font-medium');
+                        usernameElement.textContent = answerName;
+                        answerTextElement.classList.add('text-white');
+                        answerTextElement.textContent = answerText;
+                        codeSnippetElement.classList.add('text-white');
+                        codeSnippetElement.textContent = codeSnippet;
+
+                        answerElement.appendChild(usernameElement);
+                        answerElement.appendChild(breakElement);
+                        if (answerText !== '') {
+                            answerElement.appendChild(answerTextElement);
+                        }
+                        if (codeSnippet !== '') {
+                            answerElement.appendChild(codeSnippetElement);
+                        }
+                        answerBox.appendChild(answerElement);
+
+                        answerNameInput.value = '';
+                        answerTextarea.value = '';
+                        codeSnippetTextarea.value = '';
+                    }
+                });
+
+                appendCodeSnippetButton.addEventListener('click', function () {
+                    codeSnippetTextarea.classList.remove('hidden');
+                });
+
+                appendTextAreaButton.addEventListener('click', function () {
+                    codeSnippetTextarea.classList.remove('hidden');
+                });
+
+                answerBox.appendChild(answerNameInput);
+                answerBox.appendChild(answerTextarea);
+                answerBox.appendChild(codeSnippetTextarea);
+                answerBox.appendChild(appendCodeSnippetButton);
+                answerBox.appendChild(appendTextAreaButton);
+                answerBox.appendChild(submitAnswerButton);
+
+                questionCard.appendChild(answerBox);
+            });
+
+            questionCard.appendChild(questionTitle);
+            questionCard.appendChild(questionText);
+            userInfo.appendChild(userAvatar);
+            userInfo.appendChild(username);
+            userInfo.appendChild(timestamp);
+            questionCard.appendChild(userInfo);
+            questionCard.appendChild(answerButton);
+
+            questionCards.appendChild(questionCard);
+
+            questionInput.value = '';
+            nameInput.value = '';
+        });
+    </script>
+    <!-- <script src="questions.js"></script> -->
+</body>
+
+</html>
